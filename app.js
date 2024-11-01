@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("node:path");
+const PORT = process.env.PORT || 3000;
 
 const addMessageRoute = require("./routes/addMessageRoute");
 const messageRouter = require("./routes/messagesRoute");
@@ -13,6 +14,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/new", addMessageRoute);
 app.use("/", messageRouter);
 
-app.listen(3000, (req, res) => {
+app.listen(PORT, (req, res) => {
   console.log("Listening on port 3000");
 });
